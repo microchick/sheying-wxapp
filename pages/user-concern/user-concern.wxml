@@ -1,0 +1,71 @@
+<view class="user">
+  <view class="user-top">
+    <view class="user-img">
+      <image src="{{userInfo.avatar}}" class='radius'></image>
+    </view>
+    <view class="user-text">
+      <view class="user-name">
+        {{userInfo.user_nickname}} 
+        <view class='fr'>
+        <button class="primary btn round button-hover sm bar-fr blue-bd" bindtap="unfollow" data-id="{{userInfo.to_uid}}" wx:if="{{isfollow}}"> 
+            取消关注
+        </button> 
+        <button class="primary btn round button-hover sm bar-fr blue-bd" bindtap="unfollow" data-id="{{userInfo.to_uid}}" wx:else>
+          + 关注
+        </button>
+        
+        </view>
+      </view>
+      <view class="user-sub cf">
+        <!-- <navigator hover-class='none' class='gray btn xs round'>编辑资料</navigator> -->
+        
+      </view>
+    </view>
+  </view>
+  <view class="user-nav icon-nav-box brb-sm">
+    <view class="icon-nav">
+      <navigator hover-class="none" class="icon-nav-navigator">
+        <text class="icon-nav-text">{{userInfo.count.dolike}}</text>
+        <text class="icon-nav-text">点赞</text>
+      </navigator>
+      <navigator hover-class="none" class="icon-nav-navigator">
+       <text class="icon-nav-text">{{userInfo.count.doavorites}}</text>
+        <text class="icon-nav-text">收藏</text>
+      </navigator>
+      <navigator hover-class="none" class="icon-nav-navigator">
+        <text class="icon-nav-text">{{userInfo.count.docommtents}}</text>
+        <text class="icon-nav-text">评论</text>
+      </navigator>
+      <navigator url="../center-follow/center-follow?to_uid={{userInfo.id}}" hover-class="none" class="icon-nav-navigator">
+        <text class="icon-nav-text">{{userInfo.count.dofollow}}</text>
+        <text class="icon-nav-text">关注</text>
+      </navigator>
+    </view>
+  </view>
+  <view class='user-bg' style='background-image:url({{userInfo.avatar}})'>
+  </view>
+</view>
+
+<view class="nav center-nav">
+  <view class="nav-item-box">
+    <view class="nav-item {{navitem == 0?'cur':''}}" bindtap='navitem' data-item="0">作品</view>
+      <view class="nav-item {{navitem == 1?'cur':''}}" bindtap='navitem' data-item="1">参赛作品</view>
+    <view class="nav-item {{navitem == 2?'cur':''}}" bindtap='navitem' data-item="2">获奖</view> 
+  </view>
+</view>
+
+<view class='column-box'>
+   <navigator url="../activity-detail/activity-detail?id={{item.id}}" class='column-li' wx:for="{{ArticleList}}">
+    <image src='{{item.more.thumbnail}}' mode='widthFix'></image>
+      <view class='ftext p-xs flex justify-between align-center justify-center'>
+         <view><image src='../common/images/zan.png' mode='widthFix' class='l-icon flex'></image>{{item.post_like}}
+         </view>
+         <view class='text-center'>
+          <block wx:if="{{item.works_finalists==1}}">
+              <text style='color:red'>{{item.prize_winning_text}}</text> 
+         </block>
+         </view>
+        <view><image src='../common/images/pinlun.png' mode='widthFix' class='l-icon flex'></image>{{item.comment_count}}</view>
+      </view>
+  </navigator>
+</view>

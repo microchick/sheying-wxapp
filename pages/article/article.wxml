@@ -1,0 +1,44 @@
+<import src="../../wxParse/wxParse.wxml"/>
+<view class="page">
+    <view class="page__bd_spacing">
+        <view class="page__title">{{article.post_title}}</view>
+        <view class="hr mtb-5"></view>
+        <view class="article-info">
+            {{article.published_date}}
+            <view class="fa fa-eye"></view>
+            {{article.post_hits}}
+
+            <view class="fa fa-thumbs-up"></view>
+            {{article.post_like}}
+        </view>
+    </view>
+    <view class="page__bd">
+        <view class="weui-article">
+            <view class="wxParse">
+                <template is="wxParse" data="{{wxParseData:articleContent.nodes}}"/>
+            </view>
+        </view>
+    </view>
+    <view class="weui-flex article-footer-action-bar" style="">
+        <view class="weui-flex__item text-center" hover-class="action-bar-item-active" bindtap="onFavoriteTap">
+            <view class="fa fa-star"></view>
+        </view>
+        <view class="weui-flex__item text-center" hover-class="action-bar-item-active" bindtap="onLikeTap">
+            <view class="fa fa-thumbs-up"></view>
+            <view style="font-size: 12px;display:inline-block;vertical-align:top;">{{article.post_like}}
+            </view>
+        </view>
+        <view class="weui-flex__item text-center" hover-class="action-bar-item-active">
+            <navigator url="/pages/comment/comment?object_id={{article.id}}&table_name=portal_post">
+            <view class="fa fa-comments-o"></view>
+            <view style="font-size: 12px;display:inline-block;vertical-align:top;">{{article.comment_count}}
+            </view>
+            </navigator>
+        </view>
+        <view class="weui-flex__item text-center share-btn" hover-class="action-bar-item-active">
+            <button open-type="share">
+                <view class="fa fa-share"></view>
+            </button>
+        </view>
+    </view>
+</view>

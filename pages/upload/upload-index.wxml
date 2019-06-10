@@ -1,0 +1,27 @@
+
+<swiper class='swiper-bg brb-sm' indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500" indicator-active-color="#ff6600">
+  <swiper-item wx:for="{{slides}}">
+   
+      <view class='shadow-alice'  > 
+      <image src="{{item.image}}" mode='aspectFill' />
+       
+    </view>
+   
+  </swiper-item>
+</swiper>
+<view class="flex doc-box p-xs mt-sm mb-sm flex-wrap shangchuang text-center">
+  <!-- <view class='basis-xs5 doc-box-sub '></view>
+  <view class='basis-xsl doc-box-sub '>
+    <image src='../common/images/sc_img1.png' mode='widthFix'></image>
+  </view>
+  <view class='basis-xsl doc-box-sub '>
+    <image src='../common/images/sc_img2.png' mode='widthFix'></image>
+  </view>
+  <view class='basis-xsl doc-box-sub '>
+    <image src='../common/images/sc_img3.png' mode='widthFix'></image>
+  </view>
+  <view class='basis-xs5 doc-box-sub '></view>
+   --> 
+  <navigator class='primary btn lg blue-bd p-xl' url='upload' hover-class='none'>上传图文</navigator>
+  
+</view>

@@ -1,0 +1,4 @@
+/* pages/massage_list/massage_list.wxss */
+.nav-item {margin: 0;padding: 0 20rpx;font-size:26rpx;}
+.list-box .list-li{font-size:24rpx;}
+.cur{color: #1790d7 !important;border-bottom:4rpx solid #1790d7 !important}

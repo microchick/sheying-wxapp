@@ -1,0 +1,70 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/upload/upload",
+    "pages/index1/index",
+    "pages/my/my",
+    "pages/my-edit/my-edit",
+    "pages/user/setEmail",
+    "pages/user/setMobile",
+    "pages/about/update",
+    "pages/article/article",
+    "pages/favorite/index",
+    "pages/comment/comment",
+    "pages/login/login",
+    "pages/center/center",
+    "pages/center-follow/center-follow",
+    "pages/center-collection/center-collection",
+    "pages/center-upload/center-upload",
+    "pages/activity/activity",
+    "pages/upload/upload-index",
+    "pages/dolike-list/dolike-list",
+    "pages/userindex/userindex",
+    "pages/user-concern/user-concern",
+    "pages/logs/logs",
+    "pages/activity-big-detail/activity-big-detail",
+    "pages/activity-detail/activity-detail",
+    "pages/massage_detail/massage_detail",
+    "pages/massage_list/massage_list"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#ffffff",
+    "navigationBarTitleText": "客家摄影",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "backgroundColor": "#ffffff",
+    "color": "#ADADAD",
+    "selectedColor": "#1790d7",
+    "borderStyle": "white",
+    "list": [
+      {
+        "selectedIconPath": "pages/common/images/tar_index_on.png",
+        "iconPath": "pages/common/images/tar_index.png",
+        "pagePath": "pages/index/index",
+        "text": "首页"
+      },
+      {
+        "selectedIconPath": "pages/common/images/tar_hd_on.png",
+        "iconPath": "pages/common/images/tar_hd.png",
+        "pagePath": "pages/activity/activity",
+        "text": "活动"
+      },
+      {
+        "selectedIconPath": "pages/common/images/tar_sc_on.png",
+        "iconPath": "pages/common/images/tar_sc.png",
+        "pagePath": "pages/upload/upload-index",
+        "text": "上传"
+      },
+      {
+        "selectedIconPath": "pages/common/images/tar_center_on.png",
+        "iconPath": "pages/common/images/tar_center.png",
+        "pagePath": "pages/my/my",
+        "text": "我的"
+      }
+    ]
+  },
+  "debug": true,
+  "sitemapLocation": "sitemap.json"
+}

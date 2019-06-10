@@ -1,0 +1,21 @@
+ 
+
+/* pages/center1/center1.wxss */
+.first-li{height: 300rpx;border-bottom:5px solid #f5f5f5;padding:0 30rpx;}
+.first-li image{width: 150rpx;height: 150rpx;margin-right:10rpx }
+.list-text image{width: 50rpx;height:50rpx;margin-right: 10rpx}
+.list-text{display: flex;
+  align-items: center;
+  justify-content: center;}
+  .user-nav.icon-nav-box .icon-nav-navigator {
+margin:20rpx 0 20rpx;
+}
+
+.user-nav {
+padding:0;
+
+}
+.icon-nav-navigator{border-right:1px solid #eee}
+.user {margin-bottom: 0}
+.user-img image{border-radius: 100%}
+.user .user-top {height: 300rpx}

@@ -1,0 +1,52 @@
+.weui-article__p {
+    color: #999;
+}
+
+image {
+    margin: 4px 0;
+}
+
+.weui-article {
+    padding: 10px 30px;
+    font-size: 14px;
+    margin-bottom: 48px;
+}
+
+.article-info {
+    font-size: 13px;
+    color: #999;
+}
+
+.article-info .fa {
+    color: #999;
+}
+
+.article-footer-action-bar {
+    position: fixed;
+    bottom: 0;
+    height: 48px;
+    width: 100%;
+    background: #fff;
+    line-height: 48px;
+    border-top: 1px solid #eee;
+}
+
+.article-footer-action-bar .fa {
+    color: #444;
+}
+
+.action-bar-item-active {
+    background: #f9f9f9;
+}
+
+.action-bar-item-active .fa {
+    color: #000;
+}
+
+.share-btn button {
+    background: transparent;
+}
+
+.share-btn button:after {
+    border: none;
+}

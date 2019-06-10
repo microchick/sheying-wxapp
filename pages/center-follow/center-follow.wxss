@@ -1,0 +1,5 @@
+/* pages/center-follow/center-follow.wxss */
+.icon-favorfill{color:#f34755}
+.icon-favor{color: #bbbbbb}
+.iconfont {font-size: 35rpx;margin:0 !important;margin-right:5rpx  !important;}
+.case-list-li{border-bottom:1px solid #efefef;margin: 0}

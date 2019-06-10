@@ -1,0 +1,40 @@
+<view class="list-view" style="padding-bottom: 50px;">
+    <block wx:for="{{list}}" wx:key="id">
+        <view class="weui-panel weui-panel_access" bindtap="onListItemTap"
+              data-object_id="{{item.object_id}}"
+              data-id="{{item.id}}">
+            <view class="weui-media-box weui-media-box_appmsg asset-media-box"
+                  hover-class="weui-cell_active" hover="{{true}}">
+                <block wx:if="{{item.user.avatar}}">
+                    <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+                        <image class="weui-media-box__thumb" src="{{item.user.avatar}}" catchtap="previewImage"
+                               data-preview-url="{{item.more.thumbnail}}" mode="aspectFill"/>
+                    </view>
+                </block>
+                <block wx:if="{{!item.user.avatar}}">
+                    <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+                        <view style="width: 60px;height: 60px;background: #efefef;"></view>
+                    </view>
+                </block>
+                <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+                    <view class="weui-media-box__title">{{item.user.user_nickname}}</view>
+                    <rich-text class="weui-media-box__desc" nodes="{{item.content}}"></rich-text>
+                    <view class="weui-media-box__desc comment-date">{{item.create_date}}</view>
+                </view>
+                <view>
+                    <view class="fa fa-comment-o"></view>
+                </view>
+            </view>
+        </view>
+    </block>
+    <include src="../../components/loading_more.wxml"/>
+</view>
+
+<view class="weui-flex article-footer-action-bar" style="">
+    <view class="weui-flex__item text-center">
+        <input placeholder="写评论..." class="comment-box" bindinput="bindCommentInput" focus="{{commentBoxFocus}}"/>
+    </view>
+    <view class="text-center comment-submit-btn" hover-class="comment-submit-btn-active" bindtap="onCommentSubmitTab">
+        发送
+    </view>
+</view>

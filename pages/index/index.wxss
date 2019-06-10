@@ -1,0 +1,23 @@
+page {background:#ffffff;}
+.swiper-screen {height:460rpx;}
+.swiper-screen image {width:100%;display:block;height:460rpx;margin:0;}
+.swiper-bg {background-size:cover;height:460rpx;}
+.swiper-bg swiper-item {height:400rpx;}
+.swiper-bg swiper-item view {margin:12rpx 0 12rpx  10rpx;bottom:5px;}
+.swiper-bg image {width:100%; height:400rpx;margin:0;}
+.scroll-bar {background:#fff;display:flex;}
+.scroll-left,.scroll-right {width:75rpx;text-align:center;line-height:170rpx;font-size:36rpx;color:#666;}
+.scroll-list-box {width:100%;height:140rpx;}
+.scroll-list {white-space:nowrap;}
+.scroll-item {display:inline-block;width:140rpx;height:140rpx;background-repeat:no-repeat;background-position:center center;background-size:cover;background-color:#fff;border-radius:10rpx;margin-right:20rpx;}
+.bannertext {position:absolute;bottom:0;width:100%;background:rgba(0,0,0,0.5);margin:0 !important;color:#fff}
+
+
+.index-li {padding:0;position:relative}
+.index-li .ftext {position:absolute;bottom:0;width:100%;background:rgba(255,255,255,0.5);margin:0 !important;color:#000;line-height: 40rpx;} 
+ .index-li .l-icon{width: 25rpx;height: 25rpx;display:inline-block;margin-right:10rpx} 
+ .son{color:#1790d7;border-bottom:1px solid #1790d7}
+ 
+ .scroll-item.item2{width: 31.5%;height:300rpx;position: relative;overflow: hidden;border-radius:0}
+ .scroll-list-box.box2 {width:100%;height:300rpx;}
+ .scroll-item.item2 .bannertext{font-size: 20rpx;text-align: center}

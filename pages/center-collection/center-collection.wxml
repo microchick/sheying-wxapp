@@ -1,0 +1,39 @@
+<view class="case-list-li brb-sm" wx:for="{{list}}">
+  
+      <view class="item-list-data">
+      <image src="{{item.user_info.avatar}}" class='round mr-sm'></image>
+      <view class='item-list-author '>
+        <view class="item-list-name">{{item.user_info.user_nickname}}</view>
+        <view class="flex">
+          <text class='iconfont icon-favorfill' wx:for="{{item.user_info.dolike_star-0}}"></text>
+          <text class='iconfont icon-favor' wx:for="{{(5-item.user_info.dolike_star)-0}}"></text>
+          <text class='gray-text ml-sm text-sm'>{{item.create_time}}</text>
+          <text class='gray-text ml-sm text-sm iconfont icon-attentionfill'>14</text>
+        </view>
+      </view>
+      <view class="item-list-num">
+        <button class="blue-bd primary btn round button-hover sm bar-fr" bindtap="recomment" data-id="{{item.object_id}}">
+          <text>取消收藏</text>
+        </button>
+      </view>
+    </view>
+<navigator url='../activity-detail/activity-detail?id={{item.object_id}}' hover-class='none'>
+    <view class="case-list-img">
+      <image src="{{item.thumbnail}}" mode="widthFix"></image>
+    </view>
+    <view class="item-list-data">
+      <view class='item-list-author text-lg'>
+        <view class="item-list-name blue-text pb-xs">{{item.title}} </view>
+        <view class="item-list-info">
+          <text class="iconfont icon-appreciatefill"> {{item.dolike_count}}</text>
+          <text class="iconfont icon-comment"> {{item.docomment_count}}</text>
+          <!-- <view class="item-list-num">
+            <text class="iconfont icon-timefill"> 已结束</text>
+          </view> -->
+        </view>
+      </view>
+    </view>
+  </navigator>
+</view>
+
+

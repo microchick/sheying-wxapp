@@ -1,0 +1,10 @@
+.case-list-img {
+border-radius:0;
+}
+.item-list-author{padding: 0}
+
+.case-list-li {margin: 0}
+.icon-favorfill{color:#f34755 }
+.icon-favor{color: #bbbbbb}
+
+.item-list-info{font-size: 30rpx;justify-content:start}

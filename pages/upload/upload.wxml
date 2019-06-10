@@ -1,0 +1,94 @@
+<!-- <view class="flex doc-box p-xs mt-sm mb-sm flex-wrap shangchuang text-center">
+  <view class='basis-xs5 doc-box-sub '></view>
+  <view class='basis-xsl doc-box-sub '>
+    <image src='../common/images/sc_img1.png' mode='widthFix'></image>
+  </view>
+  <view class='basis-xsl doc-box-sub '>
+    <image src='../common/images/sc_img2.png' mode='widthFix'></image>
+  </view>
+  <view class='basis-xsl doc-box-sub '>
+    <image src='../common/images/sc_img3.png' mode='widthFix'></image>
+  </view>
+  <view class='basis-xs5 doc-box-sub '></view>
+  
+  <button class='primary btn lg blue-bd p-xl'bindtap='BtnReturn'>返回</button>
+  
+</view> -->
+<form bindsubmit="formSubmit" >
+  <input hidden='true' value='{{list.id}}' name="id"> </input>
+ <input hidden='true' value='{{game_id}}' name="game_id"> </input>
+   
+<view class='form-box'> 
+  <view class='form-item'>
+    <view class='form-title cur'>
+      参赛选择
+    </view>
+    <picker bindchange="bindChangeGame" value="{{game_index}}" range="{{game_array}}" name="game_type" >
+      <view class="picker">
+        {{game_array[game_index]}}
+      </view>
+    </picker>
+  </view>
+
+  <view class='form-item'>
+    <view class='form-title cur'>
+      类型选择
+    </view>
+    <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}" name="post_type" >
+      <view class="picker">
+        {{array[index]}}
+      </view>
+    </picker>
+  </view>
+
+   <view class='form-item'>
+    <view class='form-title cur'>
+      分组类型
+    </view>
+    <picker bindchange="bindPickerpicture_grouping_category" value="{{picture_grouping_categoryindex}}" range="{{picture_grouping_categoryarray}}" name="picture_grouping_category_id" >
+      <view class="picker">
+        {{picture_grouping_categoryarray[picture_grouping_categoryindex]}}
+      </view>
+    </picker>
+  </view>
+  
+  <view class='form-item'>
+    <view class='form-title cur'>
+      作品标题
+    </view>
+    <view class='form-input'>
+      <input class=''  name="post_title" type="text" placeholder="请输入标题" value='{{list.post_title}}' bindinput='bindtitle'></input>
+    </view>
+  </view>
+  <view class="form-item form-textarea">
+    <view class='form-title cur'>
+      作品描述
+    </view>
+    <textarea name="post_excerpt" placeholder='请输入描述' maxlength="-1" value='{{list.post_excerpt}}' bindinput='bindexcerpt'></textarea>
+  </view>
+</view>
+
+<view class='form-box'>
+  <view class="form-item form-upload" wx:for="{{list.more.photos}}">
+    <view class="lattice-image">
+      <view>
+        <image src='{{item.url}}' mode='aspectFill'></image>
+        <view class='iconfont icon-close' bindtap='delItemFn' data-index='{{index}}'></view>
+      </view>
+      <view style='padding:0;width:62%;'>
+        <textarea placeholder='多行文本输入框' name="textarea{{index}}" bindinput="textarea" maxlength="-1" value='{{item.name}}' data-index="{{index}}"></textarea>
+      </view>
+    </view>
+  </view> 
+  
+  <view class="p-sm justify-center text-center" wx:if="{{list.more.photos.length < 1}}">
+    <view class='p-sm'>新增图文</view>
+    <button class='gray btn block lg' style='margin:0' bindtap='gotoShow'><text class='iconfont icon-add mr-xs'></text>手机相册</button>
+  </view>
+</view>
+
+<view class="p-sm">
+  <button class='primary btn mt-sm block lg blue-bd' form-type="submit">保存</button>
+</view>
+
+</form>

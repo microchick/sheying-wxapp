@@ -1,0 +1,80 @@
+<!--pages/massage_list/massage_list.wxml-->
+
+<view class="nav">
+  <view class="nav-item-box">
+    <view class="nav-item {{navitem == 0?'cur':''}}" bindtap='navitem' data-item="0">全部消息</view>
+    <view class="nav-item {{navitem == 1?'cur':''}}" bindtap='navitem' data-item="1">系统消息</view>
+    <view class="nav-item {{navitem == 2?'cur':''}}" bindtap='navitem' data-item="2">评价消息</view>
+    <view class="nav-item {{navitem == 3?'cur':''}}" bindtap='navitem' data-item="3">收藏通知</view>
+    <view class="nav-item {{navitem == 4?'cur':''}}" bindtap='navitem' data-item="4">点赞通知</view>
+    <view class="nav-item {{navitem == 5?'cur':''}}" bindtap='navitem' data-item="5">关注通知</view>
+  </view>
+</view>
+ 
+<view class="list-box">
+ <block wx:for="{{massage_list}}"> 
+   <block wx:if="{{item.type==1}}"> 
+<view  bindtap='navigaotor_chick' data-id="{{item.id}}" data-object_id="{{item.object_id}}" data-type="{{item.type}}" class="list-li list-arrow"  >
+    <view bindtap='navigaotor_chick' data-id="{{item.id}}" data-object_id="{{item.object_id}}" data-type="{{item.type}}" >
+      系统消息<text class='blue-text' bindtap='navigaotor_chick' data-id="{{item.id}}" data-object_id="{{item.object_id}}" data-type="{{item.type}}" >点击查看</text>
+    </view>
+    <view class="list-icon gray-text" bindtap='navigaotor_chick' data-id="{{item.id}}" data-object_id="{{item.object_id}}" data-type="{{item.type}}" >
+      {{item.creat_time}}
+    </view>
+</view>
+   </block>
+
+<block wx:if="{{item.type==2}}"> 
+<view  bindtap='navigaotor_chick' data-id="{{item.id}}" data-object_id="{{item.object_id}}" data-type="{{item.type}}" class="list-li list-arrow"  >
+    <view bindtap='navigaotor_chick' data-id="{{item.id}}" data-object_id="{{item.object_id}}" data-type="{{item.type}}" >
+     <text class='danger-text'>@{{item.to_user_name}}</text> 
+    {{item.content}}
+      <text class='blue-text' bindtap='navigaotor_chick' data-id="{{item.id}}" data-object_id="{{item.object_id}}" data-type="{{item.type}}" >{{item.title}}</text>
+    </view>
+    <view class="list-icon gray-text" bindtap='navigaotor_chick' data-id="{{item.id}}" data-object_id="{{item.object_id}}" data-type="{{item.type}}" >
+      {{item.creat_time}}
+    </view>
+  </view>
+</block>
+<block wx:if="{{item.type==3}}"> 
+<view  bindtap='navigaotor_chick' data-id="{{item.id}}" data-object_id="{{item.object_id}}" data-type="{{item.type}}" class="list-li list-arrow"  >
+    <view bindtap='navigaotor_chick' data-id="{{item.id}}" data-object_id="{{item.object_id}}" data-type="{{item.type}}" >
+     <text class='danger-text'>@{{item.to_user_name}}</text> 
+    {{item.content}}
+      <text class='blue-text' bindtap='navigaotor_chick' data-id="{{item.id}}" data-object_id="{{item.object_id}}" data-type="{{item.type}}" >{{item.title}}</text>
+    </view>
+    <view class="list-icon gray-text" bindtap='navigaotor_chick' data-id="{{item.id}}" data-object_id="{{item.object_id}}" data-type="{{item.type}}" >
+      {{item.creat_time}}
+    </view>
+  </view>
+</block>
+
+<block wx:if="{{item.type==4}}"> 
+<view  bindtap='navigaotor_chick' data-id="{{item.id}}" data-object_id="{{item.object_id}}" data-type="{{item.type}}" class="list-li list-arrow"  >
+    <view bindtap='navigaotor_chick' data-id="{{item.id}}" data-object_id="{{item.object_id}}" data-type="{{item.type}}" >
+     <text class='danger-text'>@{{item.to_user_name}}</text> 
+    {{item.content}}
+      <text class='blue-text' bindtap='navigaotor_chick' data-id="{{item.id}}" data-object_id="{{item.object_id}}" data-type="{{item.type}}" >{{item.title}}</text>
+    </view>
+    <view class="list-icon gray-text" bindtap='navigaotor_chick' data-id="{{item.id}}" data-object_id="{{item.object_id}}" data-type="{{item.type}}" >
+      {{item.creat_time}}
+    </view>
+  </view>
+</block>
+<block wx:if="{{item.type==5}}"> 
+<view  bindtap='navigaotor_chick' data-id="{{item.id}}" data-object_id="{{item.object_id}}" data-type="{{item.type}}" class="list-li list-arrow"  >
+    <view bindtap='navigaotor_chick' data-id="{{item.id}}" data-object_id="{{item.object_id}}" data-type="{{item.type}}" >
+       @{{item.to_user_name}}
+       {{item.content}}
+        {{item.title}}
+    </view>
+    <view class="list-icon gray-text" bindtap='navigaotor_chick' data-id="{{item.id}}" data-object_id="{{item.object_id}}" data-type="{{item.type}}" >
+      {{item.creat_time}}
+    </view>
+  </view>
+</block>
+
+   </block>
+
+</view>
+<view class='text-center'  wx:if="{{load_more == false}}">没有更多信息啦~</view>

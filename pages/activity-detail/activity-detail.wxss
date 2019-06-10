@@ -1,0 +1,36 @@
+/* pages/activity-detail/activity-detail.wxss */
+.icon-favorfill{color:#f34755 }
+.icon-favor{color: #bbbbbb}
+.comment{margin-bottom:120rpx;}
+.comment-sub-name image {
+  width:60rpx;
+height:60rpx;
+margin-right:10rpx;
+}
+.comment-sub-name{align-items:center;}
+ 
+ .primary.btn {box-shadow:0 0 0 rgba(14,144,210,.2);}
+ .lattice-image>view {width:100%;padding-bottom:100%;}
+
+.advert{width: 100%;height: 300rpx;margin-top:10rpx; }
+.list-tx-img image+image{margin: 0}
+.list-li{border: 0}
+.comment-sub{background: none}
+.comment-sub .comment-sub-content{border-bottom:1px solid #efefef;padding-bottom: 20rpx;padding-left:70rpx;}
+.tab {position:fixed;bottom: 0;width: 100%;background: #fff;padding:20rpx 0;z-index: 9999}
+.tab .tab-li{width: 25%;padding:10rpx;border-right: 1px solid #efefef}
+.tab .icon-appreciatefill{color: #1790d7 !important}
+.tab .icon-favorfill{color: #1790d7 !important}
+.tab .tab-li .iconfont{font-size:40rpx;color:#000}
+
+.modal-message textarea{border: 1px solid #cccccc;padding: 20rpx;height: 200rpx;width: 100%}
+
+.modal-box {display: none}
+.modal-box.cur{display: inline-block}
+
+.modal-option-btn::after{height: 0 !important; border: 0;font-size:25rpx;}
+
+ .column-li .l-icon{width: 25rpx;height: 25rpx;display:inline-block;margin-right:10rpx}
+ .icon-forward{font-size:26rpx !important;border: 0;background: none;padding: 0;line-height:1.5}
+ .icon-forward::after{height: 0;border: 0}
+ 

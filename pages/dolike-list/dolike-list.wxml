@@ -1,0 +1,23 @@
+<view class="case-list-li" wx:for="{{PostLists}}">
+  <view class="item-list-data">
+    <navigator url='../user-concern/user-concern?to_uid={{item.user_id}}' hover-class='none'>
+      <image src="{{item.user_info.avatar}}" class='round'></image>
+      </navigator>
+      <view class='item-list-author '>
+      <navigator url='../user-concern/user-concern?to_uid={{item.user_id}}' hover-class='none'>
+        <view class="item-list-name">{{item.user_info.user_nickname}}</view>
+        <view class="flex">
+          <text class='iconfont icon-favorfill' wx:for="{{item.user_info.dolike_star-0}}"></text>
+          <text class='iconfont icon-favor' wx:for="{{(5-item.user_info.dolike_star)-0}}"></text>
+        </view>
+        </navigator>
+      </view>
+    <view class="item-list-num" wx:if="{{follow}}">
+     
+         <button class="blue-bd primary btn round button-hover sm bar-fr" bindtap="unfollow" data-id="{{item.user_id}}">
+          <text>取消关注</text>
+        </button> 
+        
+    </view>
+  </view>
+</view>

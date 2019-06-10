@@ -1,0 +1,15 @@
+/* pages/upload/upload.wxss */
+.shangchuang{width: 100%;top: 45%;}
+.shangchuang image{width: 150rpx;height: 150rpx}
+.btn{margin: 0 auto;width: 300rpx;display:block; }
+.btn{width: 100%}
+.iconfont.icon-close{background: #dd514c;border-radius: 100%;width: 40rpx;line-height:40rpx;top:10rpx;right: 10rpx;}
+.form-upload textarea{height: 300rpx;border: 1px solid #efefef;padding: 20rpx;}
+
+
+.swiper-screen {height:460rpx;}
+.swiper-screen image {width:100%;display:block;height:460rpx;margin:0;}
+.swiper-bg {background-size:cover;height:500rpx;}
+.swiper-bg swiper-item {height:400rpx;}
+.swiper-bg swiper-item view {margin:20rpx;}
+.swiper-bg image {width:100%;display:block;height:400rpx;margin:0;}

@@ -1,0 +1,26 @@
+.nav {box-shadow:0 0 0 rgba(0,0,0,.2);}
+.nav-item-box{width: 100%}
+.nav-item-box .nav-item{width: 50%;margin: 0;text-align: center;border-bottom:2px solid #ffffff;}
+.nav-item.cur {border-bottom: 2px solid #1790d7;color: #1790d7}
+
+.column-li {padding:5rpx;position:relative}
+.column-li .ftext {position:absolute;bottom:0;width:100%;background:rgba(255,255,255,0.5);margin:0 !important;color:#000;line-height: 40rpx;}
+ 
+ .column-li .l-icon{width: 25rpx;height: 25rpx;display:inline-block;margin-right:10rpx}
+ .icon-forward{font-size:26rpx !important;border: 0;background: none;padding: 0}
+ .icon-forward::after{height: 0;border: 0}
+ 
+
+ /*获奖名单列表*/
+.huojiang-icon-favorfill{color:#f34755}
+.huojiang-icon-favor{color: #bbbbbb}
+.huojiang-iconfont {font-size: 35rpx;margin:0 !important;margin-right:5rpx  !important;}
+.huojiang-case-list-li{border-bottom:1px solid #efefef;margin: 0}
+.auto_height {height:790rpx;overflow: hidden;}
+
+.column-box{width: 50%;column-count:1;float: left;padding:0;}
+.post_title{border:1px solid #1790d7 !important;
+display:inline-block;
+padding:2px 5px;
+border-radius:5px;margin-right:10rpx;
+}

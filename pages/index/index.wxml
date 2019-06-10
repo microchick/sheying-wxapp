@@ -1,0 +1,103 @@
+<!--pages/index/index.wxml-->
+
+  <view class='flex justify-between align-center'>
+  <view class='flex justify-start m-sm'>
+    <view class='mh-sm pv-xs {{ontar == 0?"son":""}}' bindtap='ontar' data-id="0">活动公告</view>
+  
+   <view class='mh-sm pv-xs {{ontar == item.id?"son":""}}' bindtap='clickCategory_nav' data-id="{{item.id}}"  wx:for="{{click_categories}}">{{item.name}}</view>
+    <!--  <view class='mh-sm pv-xs {{ontar == 2?"son":""}}' bindtap='clickCategory_nav' data-id="2">专业组</view> -->
+     
+  </view>
+  <navigator hover-class='none' url='../upload/upload'>
+    <button class='primary btn hollow sm mr-sm'>制作</button>
+  </navigator>
+</view>  
+
+<block wx:if="{{clickCategory_nav==true}}">
+  <view class='scroll-bar ph-sm mb-lg'>
+  <scroll-view scroll-x class='scroll-list-box box2' scroll-into-view="in-{{scrollInto}}" scroll-with-animation>
+    <view class='scroll-list'  >
+    <block wx:if="{{zuopin_list.length == 0}}">
+      <view   class="no-data-tip">
+        <view>暂无数据</view>
+      </view>
+    </block>
+ 
+<block wx:for="{{zuopin_list}}">
+      <view class='scroll-item item2' id="in-{{index}}" style='background-image:url({{item.more.thumbnail}})' bindtap='navigaotor_chick' data-id='{{item.id}}' >
+      <view class='bannertext p-xs'> 
+        <text>{{item.post_title}}</text> 
+      </view> 
+      </view>
+</block>
+    </view>
+  </scroll-view>
+</view>  
+</block>
+ <block wx:if="{{clickCategory_nav==false}}">
+<swiper class='swiper-bg brb-sm' indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500" indicator-active-color="#ff6600">
+  <swiper-item wx:for="{{slides}}">
+  <block wx:if="{{item.url}}">
+    <navigator class='shadow-alice' url="../activity-big-detail/activity-big-detail?id={{item.url}}" hover-class='none'> 
+    <!-- ../activity-big-detail/activity-big-detail -->
+      <image src="{{item.image}}" mode='aspectFill' />
+      <view class='bannertext '>
+        <view class='fl' style='width:78%;overflow:hidden;margin:10px 0 10px 0px;'>
+          <!-- <text class='blue-text mr-sm pv-sm'>[征集中]</text> -->
+          <text class='pv-sm'>{{item.title}}</text>
+        </view>
+        <text class='blue-bd fr p-sm' >查看详情</text>
+      </view>
+    </navigator>
+  </block>
+  <block wx:else>
+      <view class='shadow-alice'  > 
+      <image src="{{item.image}}" mode='aspectFill' />
+      <view class='bannertext '>
+        <view class='fl'>
+          <text class='pv-sm'>{{item.title}}</text>
+        </view>
+      </view>
+    </view>
+  </block>
+ 
+
+  </swiper-item>
+</swiper>
+ </block>
+<view class='scroll-bar ph-sm '>
+  <scroll-view scroll-x class='scroll-list-box' scroll-into-view="in-{{scrollInto}}" scroll-with-animation>
+    <view class='scroll-list'>
+      <view class='scroll-item' style='background-image:url(https://wechatxcx.sywstudio.com/upload/portal/20190220/2ce71844cb61eb8a69852e802ff91cd4.jpg)'   bindtap='clickCategory' data-id='4' data-name="全部"></view>
+      <view class='scroll-item' style='background-image:url({{item.more.thumbnail}})' wx:for="{{categories}}" bindtap='clickCategory' data-id='{{item.id}}' data-name="{{item.name}}"></view>
+    </view>
+  </scroll-view>
+</view>
+<view class='ph-sm pt-sm'>
+  {{name}}
+</view>
+<view class='flex doc-box'>
+<view class='basis-df p-xs' style='padding-right:5rpx'>
+  <navigator url="../activity-detail/activity-detail?id={{item.id}}" class='index-li' wx:for="{{PostLists}}" wx:if="{{index%2==1}}">
+    <image src='{{item.more.thumbnail}}' mode='widthFix' style="width:100%;"></image>
+    <view class='ftext flex justify-between align-center justify-center'>
+      <view>
+        <image src='../common/images/zan.png' mode='widthFix' class='l-icon flex'></image>{{item.post_like}}</view>
+      <view>
+        <image src='../common/images/pinlun.png' mode='widthFix' class='l-icon flex'></image>{{item.docomments_count}}</view>
+    </view>
+  </navigator> 
+</view>
+<view class='basis-df  p-xs' style='padding-left:5rpx'>
+  <navigator url="../activity-detail/activity-detail?id={{item.id}}" class=' index-li' wx:for="{{PostLists}}" wx:if="{{index%2==0}}">
+    <image src='{{item.more.thumbnail}}' mode='widthFix' style="width:100%;"></image>
+    <view class='ftext flex justify-between align-center justify-center'>
+      <view>
+        <image src='../common/images/zan.png' mode='widthFix' class='l-icon flex'></image>{{item.post_like}}</view>
+      <view>
+        <image src='../common/images/pinlun.png' mode='widthFix' class='l-icon flex'></image>{{item.docomments_count}}</view>
+    </view>
+  </navigator> 
+</view>
+</view>
+ <view class='text-center' wx:if="{{PostLists == ''}}">没有信息</view>

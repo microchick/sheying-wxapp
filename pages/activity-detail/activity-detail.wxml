@@ -1,0 +1,170 @@
+<view class="comment">
+  <view class="comment-item ph-sm">
+
+    <view class="item-list-data">
+
+      <image src="{{list.user_info.avatar}}" class='round' bindtap="userLikeInfo" data-to_uid="{{list.user_id}}"></image>
+      <view class='item-list-author '>
+        <view class="item-list-name">{{list.user_info.user_nickname}}</view>
+        <view class="flex">
+          <text class='iconfont icon-favorfill' wx:for="{{list.user_info.dolike_star-0}}"></text>
+          <text class='iconfont icon-favor' wx:for="{{(5-list.user_info.dolike_star)-0}}"></text>
+
+          <text class='gray-text ml-sm text-sm'>{{list.create_time}}</text>
+          <text class='gray-text ml-sm text-sm iconfont icon-attentionfill'> {{list.post_hits}}</text>
+        </view>
+      </view>
+      <view class="item-list-num">
+      <block wx:if="{{isfollow==true}}">
+         <button class="blue-bd primary btn round button-hover sm bar-fr" bindtap="unfollow" data-id="{{list.user_id}}">
+          <text>取消关注</text>
+        </button> 
+      </block>
+      <block wx:if="{{isfollow==false}}">
+         <button class="blue-bd primary btn round button-hover sm bar-fr" bindtap="follow" data-id="{{list.user_id}}">
+          <text>关注</text>
+        </button> 
+      </block>
+      
+      </view>
+    </view>
+    <view class="comment-mian"> 
+     <block wx:for="{{list.more.photos}}">
+      <view class="comment-content">{{item.name}}</view> 
+      <!-- <view class="lattice-image">
+        <view style='background-image:url({{item.url}})' bindtap='previewImage' data-src="{{item.url}}">
+        </view>
+      </view> -->
+      <image src='{{item.url}}' style='width:100%;margin:auto;' bindtap='previewImage' data-src="{{item.url}}" mode='widthFix'></image>
+      </block>
+
+       <view>
+        <view class='iconfont icon-tagfill blue-text mv-xs'>{{list.category_info.name}}
+        
+        <button class='iconfont icon-forward fr blue-text text-lg'  open-type='share'> 分享</button>
+        </view>
+        
+<block wx:if="{{list.game_info}}">
+<view>
+
+       
+        <navigator url='../activity-big-detail/activity-big-detail?id={{list.game_info.id}}' hover-class='none'>
+          <view class="iconfont icon-tagfill blue-text" style='float:left'> 已参加({{list.game_info.post_title}})</view>
+        </navigator> 
+
+        <block wx:if="{{list.works_finalists==1}}">
+          <view class='iconfont icon-tagfill blue-text mv-xs'>已入围</view>
+          </block>
+</view>
+       <block wx:if="{{list.is_bear_the_palm==1}}">
+         <view class='iconfont icon-group blue-text mv-xs'>{{list.prize_winning_text}}</view>
+       </block>
+       <block wx:if="{{list.is_popularity_award==1}}">
+         <view class='iconfont icon-appreciate blue-text mv-xs'>{{list.popularity_award_text}}</view>
+       </block>
+</block>
+         
+
+        <block wx:for="{{slides}}">
+        <image src="{{item.image}}" mode='aspectFill' class='advert' />
+        </block>
+      </view> 
+
+      <view class="list-li list-arrow" bindtap='dolistnavigateTo' data-post_id='{{list.id}}'>
+        <view class="list-text gray-text" bindtap='dolistnavigateTo' data-post_id='{{list.id}}'>点赞用户</view>
+        <view class="list-tx">
+          <view class='list-tx-img'>
+            <image wx:for="{{list.user_like_info}}" wx:if="{{index < 8}}" src="{{item.avatar}}" mode="aspectFill" bindtap="userLikeInfo" data-to_uid="{{item.user_id}}"></image>
+<!-- bindtap='userconcern' -->
+          </view>
+        </view>
+      </view>
+
+      <view class="list-text pv-sm">共{{data_count}}条评论</view>
+      <view class='text-center' wx:if="{{!comment_count}}">没有更多评论了</view>
+      <view class="comment-sub"> 
+        <block wx:for="{{comments}}">
+          <view class="comment-sub-name flex justify-between">
+            <view class='flex align-center'>
+              <image src="{{item.user.avatar}}" class="round"></image>
+              <text class="blue-text">{{item.full_name}} </text>
+              <text class="gray-text text-sm">{{item.create_time}}</text>
+            </view>
+            <button class="blue-text primary btn hollow sm round button-hover bar-fr fr" bindtap='showModal' data-modal="modal" data-type="2" data-name="@{{item.full_name}}" data-parentid="{{item.id}}">
+              <text class="blue-text">回复</text>
+            </button>
+          </view>
+          <view class="comment-sub-content mb-sm pl-xl">{{item.content}}
+          <view wx:for="{{item.children}}" style='font-size:12px;' class='mt-sm'>{{item.user.user_nickname}} 回复：{{item.content}}
+           <!-- <text class="fr" bindtap='showModal' data-modal="modal" data-type="2" data-name="@{{item.full_name}}" data-parentid="{{item.id}}">回复
+            </text> -->
+
+            <!-- <view wx:for="{{item.children}}" style='font-size:12px' wx:if="{{item.children}}">{{item.user.user_nickname}} 回复：{{item.content}}
+           <text class="fr" bindtap='showModal' data-modal="modal" data-type="2" data-name="@{{item.full_name}}" data-parentid="{{item.id}}">回复
+            </text>
+          </view> -->
+          </view> 
+          </view> 
+         
+        </block>
+        
+        <!-- 
+        <view class="comment-sub-name flex justify-between">
+          <view class='flex align-center'>
+            <image src="http://www.diwuyuan.com/bbs/uc_server/data/avatar/000/00/02/52_avatar_big.jpg" class="round"></image>
+            <text class="primary-text">王晓明</text>
+            <text class="gray-text text-sm">2 分钟前</text>
+          </view>
+          <button class="primary btn hollow sm round button-hover bar-fr fr" bindtap="recomment" data-id="{{comments.comment_id}}">
+            <text>回复</text>
+          </button>
+        </view>
+        <view class="comment-sub-content">说的dei dei！</view> -->
+
+
+
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class='tab flex justify-between align-center text-center'>
+  <view class='tab-li' bindtap='showModal' data-modal="modal">
+    <text class='iconfont icon-comment'></text> {{data_count}}
+  </view>
+  <view class='tab-li' bindtap='appreciate'>
+    <text class='iconfont icon-appreciate' wx:if="{{!appreciate}}"></text>
+    <text class='iconfont icon-appreciatefill' wx:else></text>{{list.post_like}}
+  </view>
+  <view class='tab-li' bindtap='favor'>
+    <text class='iconfont icon-favor' wx:if="{{!favor}}"></text>
+    <text class='iconfont icon-favorfill' wx:else></text> {{list.post_favorites}}
+  </view>
+  <navigator class='tab-li' hover-class='none' url='../index/index' open-type='switchTab'>
+    <text class='iconfont iconfont icon-home blue-text'></text>
+  </navigator>
+</view>
+
+<view class="modal-box {{modalName=='modal'?'cur':''}}">
+    <view class='modal-dialog'>
+    <form bindsubmit='formSubmit'>
+      <view class="modal-title">
+        <text>{{modal.name?modal.name:'评论'}}</text>
+        <view class='bar-close round' bindtap='closeModal'>
+          <text class='iconfont icon-close'></text>
+        </view>
+      </view>
+      <view class='modal-bd modal-message'>
+      <input hidden='true' name="parent_id" value='{{modal.parent_id}}'></input>
+        <textarea placeholder='{{modal.placeholder?modal.placeholder:"请输入评论"}}' maxlength="70" name="content" value='{{textarea}}'></textarea>
+         
+      </view>
+      <view class='modal-option'>
+        <view class='modal-option-btn' bindtap='closeModal' >取消</view>
+        <button class='modal-option-btn blue-text' form-type="submit" style="background: none;border: 0;">发布</button> 
+      </view>
+      </form>
+    </view>
+  
+
+</view>

@@ -1,0 +1,93 @@
+<!--pages/my-edit/my-edit.wxml-->
+
+<view class='form-box '>
+<form bindsubmit="formSubmit" bindreset="formReset">
+    <view class='form-item'>
+      <view class='form-title'>
+        头像
+      </view>
+      <image src='{{user.avatar}}' class='round mr-df img-df' mode="widthFix" bindtap='gotoShow'></image>
+      <input hidden='true' name="avatar" value='{{user.avatar}}'></input>
+    </view>
+    <view class='form-item'>
+      <view class='form-title'>
+        昵称
+      </view>
+      <input class='' type="text" placeholder="" name="user_nickname" class='form-input' value='{{user.user_nickname}}'></input>
+    </view>
+
+    <view class='form-item'>
+      <view class='form-title cur'>
+        姓名
+      </view>
+      <input class='' type="text" placeholder="" class='form-input' name="true_name"  value='{{user.true_name}}'></input>
+    </view>
+
+    <view class='form-item'>
+      <view class='form-title'>
+        性别
+      </view>
+       <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+          <view class="picker">
+            {{array[user.sex]}}
+            <input hidden='true' type="text" placeholder="" class='form-input' name="sex" value='{{user.sex}}'></input>
+          </view>
+        </picker>
+      
+    </view>
+
+    <view class='form-item'>
+      <view class='form-title'>
+        生日
+      </view>
+      <picker
+        mode="date"
+        value="{{user.birthday}}"
+        start="1990-01-01"
+        end="2019-12-30"
+        bindchange="bindTimeChange"
+      >
+        <view class="picker">
+            <input class='' type="text" placeholder="" class='form-input' name="birthday" value="{{user.birthday!=0?user.birthday:''}}"></input>
+        </view>
+      </picker>
+    </view>
+
+    <view class='form-item'>
+      <view class='form-title cur'>
+        手机号
+      </view>
+      <input class='' type="number" placeholder="" name="mobile" class='form-input' value='{{user.mobile}}'></input>
+    </view>
+    <view class='form-item'>
+      <view class='form-title'>
+        身份证号
+      </view>
+      <input class='' type="idcard" placeholder="" class='form-input' name="care_id" value='{{user.care_id}}'></input>
+    </view>
+
+    <view class='form-item'>
+      <view class='form-title'>
+        E-mail
+      </view>
+      <input class='' type="text" placeholder="" class='form-input' name="user_email" value='{{user.user_email}}'></input>
+    </view>
+
+    <view class='form-item'>
+      <view class='form-title cur'>
+        地址
+      </view>
+      <input class='' type="text" placeholder="" class='form-input' name="address" value='{{user.address}}'></input>
+    </view>
+
+    <view class='form-item'>
+      <view class='form-title'>
+        签名
+      </view>
+      <input class='' type="text" placeholder="" class='form-input' name="signature" value='{{user.signature}}'></input>
+    </view>
+    <view class='p-sm'>
+      <button form-type="submit" class='blue-bd primary btn mt-sm block lg button-hover'>保存</button>
+    </view>
+</form>
+</view>

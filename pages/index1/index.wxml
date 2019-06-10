@@ -1,0 +1,68 @@
+<!--
+<view class="weui-search-bar">
+    <view class="weui-search-bar__form">
+        <view class="weui-search-bar__box">
+            <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
+            <input type="text" class="weui-search-bar__input" placeholder="搜索" value="{{searchInputVal}}"
+                   focus="{{searchInputShowed}}" bindinput="searchInputTyping"/>
+            <view class="weui-icon-clear" wx:if="{{searchInputVal.length > 0}}" bindtap="clearSearchInput">
+                <icon type="clear" size="14"></icon>
+            </view>
+        </view>
+        <label class="weui-search-bar__label" hidden="{{searchInputShowed}}" bindtap="showSearchInput">
+            <icon class="weui-icon-search" type="search" size="14"></icon>
+            <view class="weui-search-bar__text">搜索</view>
+        </label>
+    </view>
+    <view class="weui-search-bar__cancel-btn" hidden="{{!searchInputShowed}}" bindtap="hideSearchInput">取消</view>
+</view>
+<view class="weui-cells searchbar-result" wx:if="{{!searchingResult && searchInputVal.length > 0}}">
+    <view class="weui-cell" hover-class="weui-cell_active" bindtap="searchSubmit">
+        <view class="weui-cell__bd">
+            <view>搜索"{{searchInputVal}}"</view>
+        </view>
+    </view>
+</view>
+-->
+<!--<navigator url="/pages/asset/share?id=b09c4184-f624-434e-b120-646ba06c803c">-->
+    <!--<view class="weui-cell__bd">测试分享</view>-->
+    <!--<view class="weui-cell__ft weui-cell__ft_in-access"></view>-->
+<!--</navigator>-->
+<view class="list-view">
+    <!--
+    <view class="weui-panel weui-panel_access">
+        <view class="weui-media-box weui-media-box_appmsg total-media-box"
+              hover-class="weui-cell_active" hover="{{true}}">
+            <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+                总共{{total}}个
+            </view>
+        </view>
+    </view>
+    -->
+    <block wx:for="{{list}}" wx:key="id">
+        <view class="weui-panel weui-panel_access" bindtap="onListItemTap" data-id="{{item.id}}">
+            <view class="weui-media-box weui-media-box_appmsg asset-media-box"
+                  hover-class="weui-cell_active" hover="{{true}}">
+                
+                <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+                    <view class="weui-media-box__title">{{item.post_title}}</view>
+                    <view class="weui-media-box__desc">{{item.post_excerpt}}</view>
+                </view>
+                <block wx:if="{{item.more.thumbnail}}">
+                    <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+                        <image class="weui-media-box__thumb" src="{{item.more.thumbnail}}" catchtap="previewImage"
+                               data-preview-url="{{item.more.thumbnail}}" mode="aspectFill"/>
+                    </view>
+                </block>
+                <block wx:if="{{item.more.thumbnail==''}}">
+                    <!-- <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+                        <view style="width: 60px;height: 60px;background: #efefef;"></view>
+                    </view> -->
+                </block>
+              
+            </view>
+        </view>
+    </block>
+    <include src="../../components/loading_more.wxml"/>
+</view>
+

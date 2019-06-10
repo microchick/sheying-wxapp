@@ -1,0 +1,138 @@
+<!-- <view class="page none">
+    <view class="page__bd">
+        <view class="text-center">
+            <image src="{{user.avatar}}" style="width: 60px;height: 60px;" class="img-circle"></image>
+            <view class="user-nickname">{{user.user_nickname}}</view>
+        </view>
+        <view class="weui-cells weui-cells_after-title">
+            <navigator url="/pages/favorite/index" class="weui-cell weui-cell_access"
+                       hover-class="weui-cell_active">
+                <view class="weui-cell__bd">我的收藏</view>
+                <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+            </navigator>
+            <block wx:if="{{user.mobile}}">
+                <view class="weui-cell weui-cell_access" hover-class="weui-cell_active"
+                >
+                    <view class="weui-cell__bd">手机已绑定</view>
+                    <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+                </view>
+            </block>
+            <block wx:if="{{!user.mobile}}">
+                <navigator url="/pages/user/setMobile" class="weui-cell weui-cell_access"
+                           hover-class="weui-cell_active">
+                    <view class="weui-cell__bd">绑定手机</view>
+                    <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+                </navigator>
+            </block>
+            <block wx:if="{{user.user_email}}">
+                <view class="weui-cell weui-cell_access">
+                    <view class="weui-cell__bd">邮箱已绑定</view>
+                    <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+                </view>
+            </block>
+            <block wx:if="{{!user.user_email}}">
+                <navigator url="/pages/user/setEmail" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+                    <view class="weui-cell__bd">绑定邮箱</view>
+                    <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+                </navigator>
+            </block>
+           
+        </view>
+    </view>
+</view> -->
+<!--
+        <view class="weui-btn-area">
+            <button class="weui-btn" type="warn">退出</button>
+        </view>
+        -->
+
+
+
+<view class="user">
+  <view class="user-top">
+    <view class="user-img">
+      <image src="{{user.avatar}}" class='radius'></image>
+    </view>
+    <view class="user-text">
+      <view class="user-name">
+        {{user.user_nickname}}
+      </view>
+      <view class="user-sub cf">
+        <navigator hover-class='none' style='' url='../my-edit/my-edit'>
+          <text class='iconfont icon-settings' style='width:40rpx;height:40rpx;font-size:40rpx;position: absolute;right:40rpx;top:40rpx;'></text>
+
+        </navigator>
+        <navigator hover-class='none' style='' url='../massage_list/massage_list'>
+          <text class='iconfont icon-comment' style='width:40rpx;height:40rpx;font-size:40rpx;position: absolute;right:100rpx;top:40rpx;'><text class='badge mark-badge' wx:if="{{massage_count>0}}">{{massage_count}}</text></text> 
+        </navigator>
+        <!-- <navigator hover-class='none' class='gray btn xs round'>编辑资料</navigator> -->
+        <!-- <navigator hover-class='none' class='fr'>
+          <text class='iconfont icon-qrcode'></text> 个人名片</navigator> -->
+      </view>
+    </view>
+  </view>
+  <view class="user-nav icon-nav-box brb-sm">
+    <view class="icon-nav">
+      <navigator hover-class="none" class="icon-nav-navigator">
+        <text class="icon-nav-text">{{user_count.dolike}}</text>
+        <text class="icon-nav-text">点赞</text>
+      </navigator>
+      <navigator hover-class="none" class="icon-nav-navigator">
+        <text class="icon-nav-text">{{user_count.doavorites}}</text>
+        <text class="icon-nav-text">收藏</text>
+      </navigator>
+      <navigator url="" hover-class="none" class="icon-nav-navigator">
+        <!-- ../center-follow/center-follow -->
+        <text class="icon-nav-text">{{user_count.docommtents}}</text>
+        <text class="icon-nav-text">评论</text>
+      </navigator>
+      <navigator url="../center-follow/center-follow" hover-class="none" class="icon-nav-navigator">
+        <!-- ../center-follow/center-follow -->
+        <text class="icon-nav-text">{{user_count.dofollow}}</text>
+        <text class="icon-nav-text">关注</text>
+      </navigator>
+    </view>
+  </view>
+  <view class='user-bg' style='background-image:url({{user.avatar}})'>
+  </view>
+</view>
+<navigator url="../center-collection/center-collection" hover-class="none" class="first-li brb-sm">
+  <view class='list-li list-arrow' style="border-bottom:0">
+    <view class="list-text">
+      我的收藏
+    </view>
+    <!-- <view class="list-icon gray-text">
+    1
+    </view> -->
+  </view>
+  <view>
+    <image src="{{item.thumbnail}}" mode='aspectFill' wx:for="{{collectionlist}}" wx:if="{{index < 4}}"></image>
+  </view>
+</navigator>
+
+<view class="list-box">
+  <!-- <navigator url="" hover-class="none" class="list-li list-arrow">
+    <view class="list-text">
+      <image src="../common/images/center-icon1.png"></image> 我的云库
+    </view>
+    <view class="list-icon gray-text">
+      容量：5.0G / 剩余：4.9G
+    </view>
+  </navigator> -->
+  <navigator url="../center-upload/center-upload" hover-class="none" class="list-li list-arrow">
+    <view class="list-text">
+      <image src="../common/images/center-icon2.png"></image> 我的图文
+    </view>
+    <view class="list-icon gray-text">
+      图文
+    </view>
+  </navigator>
+  <!-- <navigator url="" hover-class="none" class="list-li list-arrow">
+    <view class="list-text">
+      <image src="../common/images/center-icon3.png"></image> 我的钱包
+    </view>
+    <view class="list-icon gray-text">
+      钱包明细
+    </view>
+  </navigator> -->
+</view>

@@ -1,0 +1,20 @@
+<view class="list-view">
+    <block wx:for="{{list}}" wx:key="id">
+        <view class="weui-panel weui-panel_access" bindtap="onListItemTap" bindlongpress="onListItemLongPress"
+              data-object_id="{{item.object_id}}"
+              data-id="{{item.id}}">
+            <view class="weui-media-box weui-media-box_appmsg asset-media-box"
+                  hover-class="weui-cell_active" hover="{{true}}">
+
+                <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+                    <view class="weui-media-box__title">{{item.title}}</view>
+                    <view class="weui-media-box__desc">{{item.description}}</view>
+                </view>
+                <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+
+            </view>
+        </view>
+    </block>
+    <include src="../../components/loading_more.wxml"/>
+</view>
+

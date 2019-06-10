@@ -1,0 +1,143 @@
+{
+	"description": "项目配置文件",
+	"packOptions": {
+		"ignore": []
+	},
+	"setting": {
+		"urlCheck": true,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true,
+		"autoAudits": false
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.4.3",
+	"appid": "wxebd8d7b74faa2c15",
+	"projectname": "cmf",
+	"debugOptions": {
+		"hidedInDevtools": []
+	},
+	"isGameTourist": false,
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"currentL": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": 14,
+			"list": [
+				{
+					"id": -1,
+					"name": "my",
+					"pathName": "pages/my/my",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "index1",
+					"pathName": "pages/index1/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "upload",
+					"pathName": "pages/upload/upload",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "center-upload",
+					"pathName": "pages/center-upload/center-upload",
+					"query": ""
+				},
+				{
+					"id": 4,
+					"name": "upload",
+					"pathName": "pages/upload/upload",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "upload",
+					"pathName": "pages/upload/upload",
+					"query": "type=edit&id=12"
+				},
+				{
+					"id": -1,
+					"name": "activity-detail",
+					"pathName": "pages/activity-detail/activity-detail",
+					"query": "type=edit&id=12"
+				},
+				{
+					"id": -1,
+					"name": "center-collection",
+					"pathName": "pages/center-collection/center-collection",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "activity-detailid=58",
+					"pathName": "pages/activity-detail/activity-detail",
+					"query": "id=58",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "center-follow",
+					"pathName": "pages/center-follow/center-follow",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "user-concern",
+					"pathName": "pages/user-concern/user-concern",
+					"query": "to_uid=1269",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "my-edit",
+					"pathName": "pages/my-edit/my-edit",
+					"query": "to_uid=1269",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "massage_list",
+					"pathName": "pages/massage_list/massage_list",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "activity-big-detail",
+					"pathName": "pages/activity-big-detail/activity-big-detail",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "massage_list",
+					"pathName": "pages/massage_list/massage_list",
+					"scene": null
+				}
+			]
+		}
+	}
+}

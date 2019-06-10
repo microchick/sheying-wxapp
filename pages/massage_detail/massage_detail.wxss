@@ -1,0 +1,6 @@
+ 
+.post_title{border:1px solid #1790d7 !important;
+display:inline-block;
+padding:2px 5px;
+border-radius:5px;margin-right:10rpx;
+}

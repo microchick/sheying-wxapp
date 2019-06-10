@@ -1,0 +1,7 @@
+<view class='p-sm ' style='text-align:center; border-bottom:1pt solid #f5f5f5;'>
+    {{content_info.title}}
+</view>
+<view class='p-sm' style='text-align:center;'>
+    <import src="../../wxParse/wxParse.wxml" />
+    <template is="wxParse" data="{{wxParseData:content.nodes}}" />
+</view>

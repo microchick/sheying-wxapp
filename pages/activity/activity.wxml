@@ -1,0 +1,18 @@
+<view class="case-list-li brb-sm" wx:for="{{PostLists}}" >
+  <navigator url='../activity-big-detail/activity-big-detail?id={{item.id}}' hover-class='none'>
+  <view class="case-list-img">
+    <image src="{{item.more.thumbnail}}" mode="widthFix"></image> 
+  </view>
+  <view class="item-list-data">
+    <view class='item-list-author text-lg'>
+      <view class="item-list-name blue-text pb-xs" >{{item.post_title}}</view>
+      <view class="item-list-info">
+        <text class="iconfont icon-pic">{{item.post_hits}}</text>
+        <view class="item-list-num">
+          <text class="iconfont icon-timefill">{{item.activity_state_text}}</text> 
+        </view>
+      </view>
+    </view>
+  </view>
+  </navigator>
+</view>

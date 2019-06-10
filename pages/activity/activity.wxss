@@ -1,0 +1,6 @@
+.case-list-img {
+border-radius:0;
+}
+.item-list-author{padding: 0}
+
+.case-list-li {margin: 0}

@@ -1,0 +1,35 @@
+<view class='item-list-box mt-sm'>
+  
+  <view class="goods-list-li" wx:for="{{list}}">
+    <view class='goods-list-main'>
+    <navigator url="../activity-detail/activity-detail?id={{item.id}}">
+      <view class='goods-list-img'>
+        <image src='{{item.more.thumbnail}}' mode='aspectFill'></image>
+        <view class='goods-title'>{{item.post_status?'已发布':'未发布'}}</view>
+      </view>
+    </navigator>
+      <view class='goods-list-text'>
+        <view class='goods-list-top'>
+          <view class='text-lg mb-sm'>
+            {{item.post_title}}
+            <!-- <view class="delet-box iconfont icon-delete" bindtap='del' data-id="{{item.id}}"></view> -->
+          </view>
+          <view class='gray-text justify-between'>浏览数：{{item.post_hits}} 点赞数：{{item.post_like}}</view>
+        </view>
+        <view class='goods-list-foot'>
+          <button class='gray btn sm button-hover' bindtap='edit' data-id='{{item.id}}'> 编辑
+          </button>
+          <button class='gray btn sm button-hover' bindtap='fb' wx:if="{{item.post_status}}" style='width:150rpx'  data-id="{{item.id}}" data-status="no"> 取消发布
+          </button>
+          <button class='blue-bd danger btn sm' bindtap='fb' wx:else style='width:150rpx' data-id="{{item.id}}" data-status="yes"> 发布
+          </button>
+          <button class='blue-bd danger btn sm' open-type='share' data-name="{{item.post_title}}" data-img="{{item.more.thumbnail}}" data-url="/pages/activity-detail/activity-detail?id={{item.id}}"> 分享
+          </button>
+        </view>
+      </view>
+    </view>
+  </view>
+
+
+
+</view>

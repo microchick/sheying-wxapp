@@ -1,0 +1,50 @@
+page{
+    background: white;
+}
+.login-container {
+    padding: 20px;
+}
+
+.input {
+    border: 1px solid #ddd;
+    font-size: 12px;
+    padding: 0 10px;
+    line-height: 30px;
+    height: 30px;
+    margin: 20px 0;
+}
+
+.input-placeholder {
+    color: #aaa !important;
+}
+
+ 
+
+.register {
+    color: #998c90;
+    font-size: 12px;
+}
+
+.btn-hover {
+    background-color: #eee !important;
+}
+
+ 
+
+.login-btn {
+    border: none;
+    height: 88rpx;
+    line-height: 88rpx;
+    background: #04be01;
+    color: #fff;
+    font-size: 11pt;
+    border-radius: 999rpx;
+}
+
+.login-btn::after {
+    display: none;
+}
+
+.login-btn.button-hover {
+    box-shadow: inset 0 5rpx 30rpx rgba(0,0,0,.15);
+}
