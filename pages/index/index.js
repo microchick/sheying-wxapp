@@ -63,6 +63,13 @@ Page({
         _this.setData({
           zuopin_list: zuopin_list,
         });
+/*额外加载底部的列表start*/
+        _this.getCategoryPostLists(cid);
+        _this.setData({
+          load_more: true,
+          page:0
+        })
+/*额外加载底部的列表end*/
         wx.hideLoading();
         
       }
@@ -164,7 +171,7 @@ Page({
   getCategoryPostLists: function (cid,bottom = false) {
     let _this = this
     let page = this.data.page+1;
-    
+    let game_id = _this.data.ontar
     var load_more = this.data.load_more
     wx.showLoading({
       title: "正在加载...",
@@ -179,14 +186,25 @@ Page({
       return false;
     }
 
+    var get_array = {
+      category_id: cid,
+      page: page,
+      limit: 3,
+    }
+    
+        if (game_id !==0){
+          var get_array = {
+            category_id: cid,
+            page: page,
+            limit: 3,
+            'where[picture_grouping_category_id]': game_id,
+          }
+        }
+     
 
     api.get({
       url: 'portal/lists/getCategoryPostLists',
-      data: {
-        category_id: cid,
-        page: page,
-        limit: 3,
-      },
+      data: get_array,
       success: data => { 
         let indexLists = _this.data.PostLists
         var PostLists = data.data.list 

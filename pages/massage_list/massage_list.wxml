@@ -4,7 +4,7 @@
   <view class="nav-item-box">
     <view class="nav-item {{navitem == 0?'cur':''}}" bindtap='navitem' data-item="0">全部消息</view>
     <view class="nav-item {{navitem == 1?'cur':''}}" bindtap='navitem' data-item="1">系统消息</view>
-    <view class="nav-item {{navitem == 2?'cur':''}}" bindtap='navitem' data-item="2">评价消息</view>
+    <view class="nav-item {{navitem == 2?'cur':''}}" bindtap='navitem' data-item="2">评论消息</view>
     <view class="nav-item {{navitem == 3?'cur':''}}" bindtap='navitem' data-item="3">收藏通知</view>
     <view class="nav-item {{navitem == 4?'cur':''}}" bindtap='navitem' data-item="4">点赞通知</view>
     <view class="nav-item {{navitem == 5?'cur':''}}" bindtap='navitem' data-item="5">关注通知</view>
@@ -77,4 +77,4 @@
    </block>
 
 </view>
-<view class='text-center'  wx:if="{{load_more == false}}">没有更多信息啦~</view>
+<view class='text-center' style="padding:100px 0;" wx:if="{{load_more == false}}">没有更多信息啦~</view>

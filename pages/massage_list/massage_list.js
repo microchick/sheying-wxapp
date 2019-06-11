@@ -114,6 +114,10 @@ Page({
   },
   
   navitem: function (e){
+    this.setData({
+      load_more: true,
+      page:0
+    })
     let type = e.target.dataset.item;
     this.massage_list(type);
     this.setData({ navitem: type})
