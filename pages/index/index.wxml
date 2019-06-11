@@ -76,7 +76,7 @@
 <view class='ph-sm pt-sm'>
   {{name}}
 </view>
-<view class='flex doc-box'>
+<view class='flex doc-box' style='min-height:400px;'>
 <view class='basis-df p-xs' style='padding-right:5rpx'>
   <navigator url="../activity-detail/activity-detail?id={{item.id}}" class='index-li' wx:for="{{PostLists}}" wx:if="{{index%2==1}}">
     <image src='{{item.more.thumbnail}}' mode='widthFix' style="width:100%;"></image>
