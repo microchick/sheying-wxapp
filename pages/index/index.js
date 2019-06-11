@@ -43,11 +43,11 @@ Page({
 
 /*额外加载底部的列表start*/
     let cid = this.data.cid;
-    this.getCategoryPostLists(cid);
     this.setData({
       load_more: true,
       page: 0
     })
+    this.getCategoryPostLists(cid);
 /*额外加载底部的列表end*/
 
   },
