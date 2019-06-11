@@ -15,7 +15,7 @@ margin-right:10rpx;
 .advert{width: 100%;height: 300rpx;margin-top:10rpx; }
 .list-tx-img image+image{margin: 0}
 .list-li{border: 0}
-.comment-sub{background: none}
+.comment-sub{background: none;padding-bottom: 50px;}
 .comment-sub .comment-sub-content{border-bottom:1px solid #efefef;padding-bottom: 20rpx;padding-left:70rpx;}
 .tab {position:fixed;bottom: 0;width: 100%;background: #fff;padding:20rpx 0;z-index: 9999}
 .tab .tab-li{width: 25%;padding:10rpx;border-right: 1px solid #efefef}
