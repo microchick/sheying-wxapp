@@ -11,7 +11,8 @@ Page({
     categories:[],
     PostLists:[],
     scrollList: [],
-    ontar: 0,
+    ontar: 0,//默认活动公告
+    is_pro_mobile: 0,//默认全部 6 手机组 7专业组
     cid:4,
     category_id:4,
     page:0,
@@ -32,19 +33,34 @@ Page({
   },
   ontar:function(e){
     let id = e.target.dataset.id
-    this.setData({ ontar: id, clickCategory_nav:false})
+    this.setData({ ontar: id, clickCategory_nav: false, is_pro_mobile: id,})
   },
   /*加载栏目分类：手机组 和专业组*/
   clickCategory_nav:function(e){
     let id = e.target.dataset.id
-    this.setData({ ontar: id, clickCategory_nav: true })
+    this.setData({ ontar: id, clickCategory_nav: true, is_pro_mobile: id,})
     this.zuopin_list();
+
+/*额外加载底部的列表start*/
+    let cid = this.data.cid;
+    this.getCategoryPostLists(cid);
+    this.setData({
+      load_more: true,
+      page: 0
+    })
+/*额外加载底部的列表end*/
+
   },
 /*获取手机或专业组的作品*/
   zuopin_list: function () {
+
     let _this = this;
-    var cid = _this.data.cid;
-    var game_id = _this.data.ontar
+    let cid = _this.data.cid;
+    let game_id = _this.data.is_pro_mobile;
+    if (game_id==0){
+
+return false;
+    }
     wx.showLoading({
       title: "正在加载...",
       mask: true,
@@ -63,13 +79,7 @@ Page({
         _this.setData({
           zuopin_list: zuopin_list,
         });
-/*额外加载底部的列表start*/
-        _this.getCategoryPostLists(cid);
-        _this.setData({
-          load_more: true,
-          page:0
-        })
-/*额外加载底部的列表end*/
+ 
         wx.hideLoading();
         
       }
@@ -171,7 +181,7 @@ Page({
   getCategoryPostLists: function (cid,bottom = false) {
     let _this = this
     let page = this.data.page+1;
-    let game_id = _this.data.ontar
+    let game_id = _this.data.is_pro_mobile;
     var load_more = this.data.load_more
     wx.showLoading({
       title: "正在加载...",
@@ -185,21 +195,23 @@ Page({
       })
       return false;
     }
-
-    var get_array = {
-      category_id: cid,
-      page: page,
-      limit: 3,
-    }
-    
-        if (game_id !==0){
-          var get_array = {
-            category_id: cid,
-            page: page,
-            limit: 3,
-            'where[picture_grouping_category_id]': game_id,
-          }
-        }
+ 
+    if (game_id==0){
+         var get_array = {
+           category_id: cid,
+           page: page,
+           limit: 3,
+         }
+       }else{
+         var get_array = {
+           category_id: cid,
+           page: page,
+           limit: 3,
+           'where[picture_grouping_category_id]': game_id,
+         }
+       }
+      
+      
      
 
     api.get({
@@ -230,6 +242,8 @@ Page({
     let cid = e.target.dataset.id
     this.setData({ name: e.target.dataset.name, page: 0, cid: cid})
     this.getCategoryPostLists(cid);
+    this.zuopin_list();
+    
   },
  
   /**
